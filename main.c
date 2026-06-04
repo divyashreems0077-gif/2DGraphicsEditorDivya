@@ -15,11 +15,16 @@ void initializeCanvas()
     }
 }
 
-void drawPoint(int row, int col)
+void drawHorizontalLine(int row)
 {
-    if(row >= 0 && row < 10 && col >= 0 && col < 20)
+    int col;
+
+    if(row >= 0 && row < 10)
     {
-        canvas[row][col] = '*';
+        for(col = 0; col < 20; col++)
+        {
+            canvas[row][col] = '*';
+        }
     }
 }
 
@@ -39,17 +44,14 @@ void displayCanvas()
 
 int main()
 {
-    int row, col;
+    int row;
 
     initializeCanvas();
 
     printf("Enter row (0-9): ");
     scanf("%d", &row);
 
-    printf("Enter column (0-19): ");
-    scanf("%d", &col);
-
-    drawPoint(row, col);
+    drawHorizontalLine(row);
 
     displayCanvas();
 
